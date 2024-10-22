@@ -86,10 +86,10 @@ app.post('/chat', async (req, res) => {
         console.error('Error communicating with Dialogflow:', error);
         res.status(500).send('Error processing your request.');
     }
-});
+});``
 
 // Start the server
-app.listen(PORT, () => {
+``app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 Create a .env file for environment variables:
