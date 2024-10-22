@@ -83,9 +83,9 @@ app.post('/chat', async (req, res) => {
 });
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-});
+});``
+
 Create a .env file for environment variables:
-``
 
 ``makefile
 Copy code
@@ -136,8 +136,11 @@ Copy code
   // ... other configurations
   "proxy": "http://backend:5000"
 }
+``
+
 Create a simple Chatbot interface in src/App.js:
-javascript
+
+``javascript
 Copy code
 // frontend/src/App.js
 import React, { useState } from 'react';
@@ -180,7 +183,6 @@ function App() {
     </div>
   );
 }
-
 export default App;
 ``
 
@@ -201,9 +203,13 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
-Step 3: Set Up Docker Compose
-A. Create the docker-compose.yml file
-yaml
+``
+
+**Step 3: Set Up Docker Compose**
+
+**A. Create the docker-compose.yml file**
+
+``yaml
 Copy code
 version: '3.8'
 
@@ -225,19 +231,18 @@ services:
       
 **Step 4: Set Up Dialogflow Create a Dialogflow Project:**
 
-``Go to Dialogflow Console.
+Go to Dialogflow Console.
 Create a new agent.
 Obtain Credentials:
-``
 
-``Go to the Settings of your agent and note the Project ID.
+Go to the Settings of your agent and note the Project ID.
 Set up a service account to get your access token:
 Create a service account in Google Cloud.
 Download the JSON key file and set up the access token using the Google Cloud SDK or API libraries.
 Set Environment Variables:
 
 Replace your-dialogflow-project-id, your-dialogflow-session-id, and your-dialogflow-access-token in the .env file with actual values.
-``
+
 
 **Step 5: Running the Application**
 
@@ -252,9 +257,10 @@ Run Docker Compose:
 ``bash
 Copy code
 docker-compose up --build
-Access the application:
-Frontend: http://localhost:3000
 ``
+
+**Access the application:**
+Frontend: http://localhost:3000
 
 **Step 6: Testing the Application Open your browser and navigate to http://localhost:3000.**
 You should see a simple chatbot interface where you can type messages and receive responses from the Dialogflow agent.
