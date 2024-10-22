@@ -4,7 +4,7 @@ Creating a Cloud-Based Conversational Interface Chatbot involves developing a ch
 
 Here's a step-by-step guide, including code snippets:
 
-Project Structure
+**Project Structure**
 The project structure will look like this:
 
 ``java
@@ -20,7 +20,8 @@ cloud-conversational-chatbot/
 │   ├── package.json
 │   ├── src/
 │   └── public/
-├── docker-compose.yml``
+├── docker-compose.yml
+``
 
 **Step 1: Set Up the Backend**
 
@@ -31,20 +32,23 @@ Create the backend directory and navigate to it:
 Copy code
 mkdir backend
 cd backend
-Initialize a new Node.js project:
 ``
+
+**Initialize a new Node.js project:**
 
 ``bash
 Copy code
 npm init -y
-Install necessary dependencies:
 ``
+
+**Install necessary dependencies:**
 
 ``bash
 Copy code
 npm install express body-parser axios dotenv cors
-Create the server.js file:
 ``
+
+**Create the server.js file:**
 
 ``javascript
 Copy code
@@ -83,7 +87,8 @@ app.post('/chat', async (req, res) => {
 });
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-});``
+});
+``
 
 Create a .env file for environment variables:
 
@@ -120,14 +125,16 @@ CMD ["node", "server.js"]
 Copy code
 mkdir ../frontend
 cd ../frontend
-Create a new React app:
 ``
+
+**Create a new React app:**
 
 ``bash
 Copy code
 npx create-react-app .
-Modify the package.json to include a proxy for API calls:
 ``
+
+**Modify the package.json to include a proxy for API calls:**
 
 ``json
 Copy code
@@ -138,7 +145,7 @@ Copy code
 }
 ``
 
-Create a simple Chatbot interface in src/App.js:
+**Create a simple Chatbot interface in src/App.js:**
 
 ``javascript
 Copy code
