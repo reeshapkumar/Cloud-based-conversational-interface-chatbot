@@ -20,8 +20,7 @@ cloud-conversational-chatbot/
 │   ├── package.json
 │   ├── src/
 │   └── public/
-├── docker-compose.yml
-``
+├── docker-compose.yml``
 
 **Step 1: Set Up the Backend**
 
