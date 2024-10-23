@@ -64,7 +64,7 @@ app.use(bodyParser.json());
 app.post('/chat', async (req, res) => {
     const { message } = req.body;
     try {
-        const response = await axios.post(`https://dialogflow.googleapis.com/v2/projects/${process.env.DIALOGFLOW_PROJECT_ID}/agent/sessions/${process.env.DIALOGFLOW_SESSION_ID}:detectIntent`, {
+        const response = await axios.post(), {
             queryInput: {
                 text: {
                     text: message,
@@ -85,7 +85,7 @@ app.post('/chat', async (req, res) => {
     }
 });
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log();
 });
 
 ``
