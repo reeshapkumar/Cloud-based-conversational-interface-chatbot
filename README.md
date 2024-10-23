@@ -7,22 +7,23 @@ Creating a Cloud-Based Conversational Interface Chatbot involves developing a ch
 **Project Structure**
 The project structure will look like this:
 
-``
+```
+cloud-conversational-chatbot/
 ├── backend/
 │   ├── Dockerfile
 │   ├── package.json
 │   ├── server.js
 │   └── .env
-``
+```
 
-``
+```
 ├── frontend/
 │   ├── Dockerfile
 │   ├── package.json
 │   ├── src/
 │   └── public/
 ├── docker-compose.yml
-``
+```
 
 **Step 1: Set Up the Backend**
 
@@ -30,29 +31,26 @@ The project structure will look like this:
 
 **Create the backend directory and navigate to it:**
 
-``bash
-Copy code
+```bash
 mkdir backend
 cd backend
-``
+```
 
 **Initialize a new Node.js project:**
 
-``bash
-Copy code
+```bash
 npm init -y
-``
+```
 
 **Install necessary dependencies:**
 
-``bash
-Copy code
+```bash
 npm install express body-parser axios dotenv cors
-``
+```
 
 **Create the server.js file:**
 
-``const express = require('express');
+```const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
@@ -88,21 +86,19 @@ app.listen(PORT, () => {
     console.log();
 });
 
-``
+```
 
 **Create a .env file for environment variables:**
 
-``makefile
-Copy code
+```makefile
 DIALOGFLOW_PROJECT_ID=your-dialogflow-project-id
 DIALOGFLOW_SESSION_ID=your-dialogflow-session-id
 DIALOGFLOW_ACCESS_TOKEN=your-dialogflow-access-token
-``
+```
 
 **B. Create the Dockerfile for Backend**
 
-``dockerfile
-Copy code
+```dockerfile
 FROM node:14
 
 WORKDIR /usr/src/app
@@ -115,38 +111,34 @@ COPY . .
 EXPOSE 5000
 
 CMD ["node", "server.js"]
-``
+```
 
 **Step 2: Set Up the Frontend**
 
 **A. Create the Frontend Directory Create the frontend directory and navigate to it:**
 
-``bash
-Copy code
+```bash
 mkdir ../frontend
 cd ../frontend
-``
+```
 
 **Create a new React app:**
 
-``bash
-Copy code
+```bash
 npx create-react-app .
-``
+```
 
 **Modify the package.json to include a proxy for API calls:**
 
-``json
-Copy code
+```json
 {
   "proxy": "http://backend:5000"
 }
-``
+```
 
 **Create a simple Chatbot interface in src/App.js:**
 
-``javascript
-Copy code
+```javascript
 import React, { useState } from 'react';
 
 function App() {
@@ -188,12 +180,11 @@ function App() {
   );
 }
 export default App;
-``
+```
 
 **B. Create the Dockerfile for Frontend**
 
-``dockerfile
-Copy code
+```dockerfile
 FROM node:14 as build
 
 WORKDIR /app
@@ -207,13 +198,13 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
-``
+```
 
 **Step 3: Set Up Docker Compose**
 
 **A. Create the docker-compose.yml file**
 
-``yaml
+```yaml
 Copy code
 version: '3.8'
 
@@ -231,7 +222,7 @@ services:
       context: ./frontend
     ports:
       - "3000:80"
-      ``
+```
       
 **Step 4: Set Up Dialogflow Create a Dialogflow Project:**
 
@@ -255,16 +246,14 @@ Replace your-dialogflow-project-id, your-dialogflow-session-id, and your-dialogf
 
 Navigate to the root of your project directory (where docker-compose.yml is located):
 
-``bash
-Copy code
+```bash
 cd cloud-conversational-chatbot
 Run Docker Compose:
-``
+```
 
-``bash
-Copy code
+```bash
 docker-compose up --build
-``
+```
 
 **Access the application:**
 Frontend: http://localhost:3000
