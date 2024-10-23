@@ -14,6 +14,7 @@ The project structure will look like this:
 │   ├── server.js
 │   └── .env
 ``
+
 ``
 ├── frontend/
 │   ├── Dockerfile
