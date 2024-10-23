@@ -57,16 +57,12 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
 require('dotenv').config();
-
 const app = express();
 const PORT = process.env.PORT || 5000;
-
 app.use(cors());
 app.use(bodyParser.json());
-
 app.post('/chat', async (req, res) => {
     const { message } = req.body;
-
     try {
         const response = await axios.post(`https://dialogflow.googleapis.com/v2/projects/${process.env.DIALOGFLOW_PROJECT_ID}/agent/sessions/${process.env.DIALOGFLOW_SESSION_ID}:detectIntent`, {
             queryInput: {
@@ -81,15 +77,13 @@ app.post('/chat', async (req, res) => {
                 'Content-Type': 'application/json',
             },
         });
-
-        const fulfillmentText = response.data.queryResult.fulfillmentText;
+     const fulfillmentText = response.data.queryResult.fulfillmentText;
         res.json({ reply: fulfillmentText });
     } catch (error) {
         console.error('Error communicating with Dialogflow:', error);
         res.status(500).send('Error processing your request.');
     }
 });
-
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
