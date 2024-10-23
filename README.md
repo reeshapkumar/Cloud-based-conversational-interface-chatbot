@@ -8,30 +8,16 @@ Creating a Cloud-Based Conversational Interface Chatbot involves developing a ch
 The project structure will look like this:
 
 ``java
-Copy code
-
-cloud-conversational-chatbot/
-
 ├── backend/
-
 │   ├── Dockerfile
-
 │   ├── package.json
-
 │   ├── server.js
-
 │   └── .env
-
 ├── frontend/
-
 │   ├── Dockerfile
-
 │   ├── package.json
-
 │   ├── src/
-
 │   └── public/
-
 ├── docker-compose.yml
 ``
 
