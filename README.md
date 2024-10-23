@@ -9,6 +9,7 @@ The project structure will look like this:
 
 ``java
 ├── backend/
+
 │   ├── Dockerfile
 │   ├── package.json
 │   ├── server.js
